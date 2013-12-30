@@ -13,6 +13,13 @@ public:
   int liveNeighbors(int x, int y);
   void tick(state &x);
   void print();
+  state(int n, int m){
+    std::vector<bool> zero;
+    zero.assign(m,0);
+    board.assign(n,zero);
+    N = n;
+    M = m;
+  }
 };
 
 //function to count the number of live neighbors
@@ -81,13 +88,7 @@ int main(){
   //set the initial game board dimensions
   
 
-  state init;
-
-  init.M = 40;
-  init.N = 40;
-  std::vector<bool> zero;
-  zero.assign(init.M,0);
-  init.board.assign(init.N,zero);
+  state init(40,40);
 
   std::ifstream input("game_board.txt");
 
